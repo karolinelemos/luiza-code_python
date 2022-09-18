@@ -1,0 +1,21 @@
+###
+# Ver se a aplicação está rodando
+GET http://localhost:8000
+
+###
+# Cadasdro de música
+POST http://localhost:8000/musicas
+
+{
+  "nome": "Patience",
+  "artista": "Gun 'n Rose",
+  "tempo": 120
+}
+
+###
+# Consulta de músicas
+GET http://localhost:8000/musicas
+
+###
+# Consulta de música pelo codigo
+GET http://localhost:8000/musicas/1
