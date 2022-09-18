@@ -1,0 +1,108 @@
+# Rota inicial
+GET  http://127.0.0.1:8000/ HTTP/1.1
+content-type: application/json
+
+#######################################
+############  usuário  ################
+#######################################
+
+# Criar usuário
+POST http://127.0.0.1:8000/usuario HTTP/1.1
+content-type: application/json
+
+{
+    "id": 1,
+    "nome": "Usuario 1",
+    "email": "teste@email.com",
+    "senha": "113"
+}
+
+#######################################
+# Pegar usuário
+GET http://127.0.0.1:8000/usuario?id=1 HTTP/1.1
+content-type: application/json
+
+#######################################
+# Pegar usuário pelo nome
+GET http://127.0.0.1:8000/usuario/nome?nome=Karoline HTTP/1.1
+content-type: application/json
+
+#######################################
+# Pegar emails com o mesmo dominio
+GET http://127.0.0.1:8000/usuarios/emails/?dominio=email.com HTTP/1.1
+content-type: application/json
+
+#######################################
+# Deletar usuário e seus endereços e carrinho pelo id
+DELETE  http://127.0.0.1:8000/usuario?id=1 HTTP/1.1
+content-type: application/json
+
+
+#######################################
+############  endereço  ###############
+#######################################
+
+# Criar endereço
+POST http://127.0.0.1:8000/endereco/2 HTTP/1.1
+content-type: application/json
+
+{
+    "id":1,
+    "rua": "Rua Ladrilhada",
+    "cep": "99999-999",
+    "cidade": "São Paulo",
+    "estado": "SP"
+}
+
+#######################################
+# Pegar endereço
+GET http://127.0.0.1:8000/usuario/2/enderecos/ HTTP/1.1
+content-type: application/json
+
+#######################################
+# Deleta endereço
+DELETE http://127.0.0.1:8000/endereco/1 HTTP/1.1
+content-type: application/json
+
+#######################################
+############  produto  ################
+#######################################
+
+# Criar produto
+POST http://127.0.0.1:8000/produto HTTP/1.1
+content-type: application/json
+
+{
+    "id": 1,
+    "nome": "Sorvete",
+    "descricao": "Doce gelado",
+    "preco": 9.99
+}
+
+#######################################
+# Busca produto
+GET http://127.0.0.1:8000/produto/1 HTTP/1.1
+
+#######################################
+# Deleta produto
+DELETE http://127.0.0.1:8000/produto/1 HTTP/1.1
+
+#######################################
+############  carrinho  ################
+#######################################
+
+# Adicionar produto ao carrinho
+POST http://127.0.0.1:8000/carrinho/1/1 HTTP/1.1
+content-type: application/json
+
+#######################################
+# Busca carrinho detalhado
+GET http://127.0.0.1:8000/carrinho/1/details HTTP/1.1
+
+#######################################
+# Busca numero_itens, valor_total do carrinho
+GET http://127.0.0.1:8000/carrinho/1 HTTP/1.1
+
+#######################################
+# Deleta carrinho
+DELETE  http://127.0.0.1:8000/carrinho/1 HTTP/1.1
